@@ -1,0 +1,19 @@
+let box = document.querySelector(".box");
+
+let offsetX = 0;
+let offsetY = 0;
+
+box.addEventListener("touchstart", (e) => {
+  let touch = e.touches[0];
+  offsetX = touch.clientX - box.offsetLeft;
+  offsetY = touch.clientY - box.offsetTop;
+});
+
+box.addEventListener("touchmove", (e) => {
+  e.preventDefault(); // very important
+  let touch = e.touches[0];
+
+  box.style.left = (touch.clientX - offsetX) + "px";
+  box.style.top = (touch.clientY - offsetY) + "px";
+});
+# Seven
